@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <h1 style="color:aliceblue;">Select a Character</h1>
+
+        <div class="row" id="rpgGame">
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terran", "attack": 8, "defense": 100, "counter": 5}]'>
+                <a href="#">
+                    <div id="terran" class="character_div">
+                        <img src="assets/images/Terran.png" class="img-fluid terran" alt="Terran"></a>
+                <h2 class="text-center" style="color:aliceblue;">Terran</h2>
+                <p>Defense: <span id="terran-defense"></span></p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"protoss", "attack": 8, "defense": 180, "counter": 25}]'>
+                <a href="#">
+                    <div id="protoss" class="character_div">
+                        <img src="assets/images/Protoss.png" class="img-fluid protoss" alt="Protoss"></a>
+                <h2 class="text-center" style="color:aliceblue;">Protoss</h2>
+                <p>Defense: <span id="protoss-defense"></span></p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"zerg", "attack": 8, "defense": 150, "counter": 20}]'>
+                <a href="#">
+                    <div id="zerg" class="character_div">
+                        <img src="assets/images/Zerg.png" class="img-fluid zerg" alt="Zerg"></a>
+                <h2 class="text-center" style="color:aliceblue;">Zerg</h2>
+                <p>Defense: <span id="zerg-defense"></span></p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terminator", "attack": 8, "defense": 120, "counter": 15}]'>
+                <a href="#">
+                    <div id="terminator" class="character_div">
+                        <img src="assets/images/terminator.png" class="img-fluid terminator" alt="Terminator"></a>
+                <h2 class="text-center" style="color:aliceblue;">Terminator</h2>
+                <p>Defense: <span id="terminator-defense"></span></p>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-8">
+                <h2 style="color:aliceblue;">Enemies Available to Attack</h2>
+                <div class="row" id="enemy-area">
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well-fluid text-center">
+                    <h2 style="color:aliceblue;">Fighting Area</h2>
+                    <div id="fighting-section" class="fight-text"></div>
+                    <button type="button" class="btn" id="attack">Attack</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+body {
+    background-image: url("/assets/images/starcraft-wallpaper.jpg");
+}
+
+.img-fluid {
+    position: relative;
+    margin-top: 60px;
+    padding: 20px;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    height: 250px;
+}
+
+.img-responsive {
+    position: absolute;
+}
+
+h1 {
+    color: #e0fefb;
+    position: absolute;
+}
+
+.terran {
+    border: 2px solid #134858;
+}
+
+.protoss {
+    border: 2px solid #134858;
+}
+
+.zerg {
+    border: 2px solid #134858;
+}
+
+.terminator {
+    border: 2px solid #134858;
+}
+
+.terran:hover {
+    opacity: 0.4;
+}
+
+.protoss:hover {
+    opacity: 0.4;
+}
+
+.zerg:hover {
+    opacity: 0.4;
+}
+
+.terminator:hover {
+    opacity: 0.4;
+}
+
+#fighting-section {
+    height: 370px;
+    margin-top: 10px;
+}
+
+.test img {
+    border: 1px solid green;
+}
+
+.fighter img {
+    border: 1px solid red;
+}
+
+.fight-text {
+    color: black;
+}
