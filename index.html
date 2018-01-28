@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Starcraft</title>
 
 </head>
 
@@ -20,16 +20,16 @@
 
 
 
-    <div class="container">
+    <div class="container" id="rpgGame">
         <h1 style="color:aliceblue;">Select a Character</h1>
 
-        <div class="row" id="rpgGame">
-            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terran", "attack": 8, "defense": 100, "counter": 5}]'>
+        <div class="row">
+
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terran", "attack": 18, "defense": 100, "counter": 5}]'>
                 <a href="#">
                     <div id="terran" class="character_div">
                         <img src="assets/images/Terran.png" class="img-fluid terran" alt="Terran"></a>
                 <h2 class="text-center" style="color:aliceblue;">Terran</h2>
-                <p>Defense: <span id="terran-defense"></span></p>
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"protoss", "attack": 8, "defense": 180, "counter": 25}]'>
@@ -37,45 +37,58 @@
                     <div id="protoss" class="character_div">
                         <img src="assets/images/Protoss.png" class="img-fluid protoss" alt="Protoss"></a>
                 <h2 class="text-center" style="color:aliceblue;">Protoss</h2>
-                <p>Defense: <span id="protoss-defense"></span></p>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"zerg", "attack": 8, "defense": 150, "counter": 20}]'>
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"zerg", "attack": 15, "defense": 140, "counter": 20}]'>
                 <a href="#">
                     <div id="zerg" class="character_div">
                         <img src="assets/images/zerg.png" class="img-fluid zerg" alt="Zerg"></a>
                 <h2 class="text-center" style="color:aliceblue;">Zerg</h2>
-                <p>Defense: <span id="zerg-defense"></span></p>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terminator", "attack": 8, "defense": 120, "counter": 15}]'>
+            <div class="col-xs-6 col-md-3 character" data-stats='[{"name":"terminator", "attack": 20, "defense": 120, "counter": 15}]'>
                 <a href="#">
                     <div id="terminator" class="character_div">
                         <img src="assets/images/Terminator.png" class="img-fluid terminator" alt="Terminator"></a>
                 <h2 class="text-center" style="color:aliceblue;">Terminator</h2>
-                <p>Defense: <span id="terminator-defense"></span></p>
                 </div>
             </div>
         </div>
 
+    </div>
 
-        <br><br>
-        <div class="row">
-            <div class="col-md-8">
-                <h2 style="color:aliceblue;">Enemies Available to Attack</h2>
-                <div class="row" id="enemy-area">
 
-                </div>
+
+    <br><br>
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="enemyAvail" style="color:aliceblue;">Select An Enemy To Fight</h2>
+            <div class="row" id="enemy-area">
+
             </div>
-            <div class="col-md-4">
-                <div class="well-fluid text-center">
-                    <h2 style="color:aliceblue;">Fighting Area</h2>
-                    <div id="fighting-section" class="fight-text"></div>
-                    <button type="button" class="btn" id="attack">Attack</button>
-                </div>
-            </div>
-
         </div>
+        <div class="col-md-4">
+            <div class="well-fluid text-center">
+
+                <h2 style="color:aliceblue;">Fighting Area</h2>
+                <div id="fighting-section" class="fight-text"></div>
+                <button type="button" class="btn" id="attack">Attack</button>
+                <button type="button" class="btn" id="reset">Reset</button>
+
+
+            </div>
+            <div style="color: white;" class="row" id="attack-info" style="margin-top: 20px">
+                <div class="col s12">
+                    <p>You attacked for <span id="characterAttackLevel"></span> HP.</p>
+                    <p>Your Health is: <span id="characterHealth" class="good"></span></p>
+                </div>
+                <div class="col s12" id="enemy-health-text">
+                    <p>Your Enemy Counter Attacked for <span id="enemyAttackLevel"></span> HP.</p>
+                    <p>Enemy Health is: <span id="enemyHealth"></span></p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

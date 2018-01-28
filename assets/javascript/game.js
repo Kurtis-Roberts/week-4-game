@@ -1,7 +1,7 @@
-var terran = { attack: 0, defense: 100 };
-var protoss = { attack: 0, defense: 120 };
-var zerg = { attack: 0, defense: 150 };
-var terminator = { attack: 0, defense: 180 };
+// var terran = { attack: 0, defense: 100 };
+// var protoss = { attack: 0, defense: 120 };
+// var zerg = { attack: 0, defense: 150 };
+// var terminator = { attack: 0, defense: 180 };
 
 
 
@@ -86,6 +86,7 @@ $(document).ready(function() {
     $("#attack-info").hide();
     $("#characterHealth").text(myCharacterDefense)
     $("#enemyHealth").text(enemyDefense)
+    $(".enemyAvail").hide();
 });
 
 
@@ -114,10 +115,10 @@ function selectedCharacter() {
             zergAudio.play()
         if (selectedCharacter === "terminator")
             terminatorAudio.play()
-
+        $(".enemyAvail").show();
 
     } else {
-        console.log("You already picked a Character")
+        console.log("You already picked an Enemy")
     }
 }
 
@@ -130,11 +131,12 @@ function selectedEnemy() {
         $(this).removeClass(".enemies");
         var stats = ($(this).data("stats"));
         selectedEnemy = stats[0].name;
+        console.log(selectedEnemy)
         enemyAttack = stats[0].attack;
         enemyDefense = stats[0].defense;
         enemyCounter = stats[0].counter;
         $(".fighter").removeClass("col-md-4");
-        $(".fighter").addClass("col-md-12");
+        $(".fighter").addClass("col-md-10");
         $("#fighting-section").html($(".fighter"));
         selectedEnemyToggle = true;
         if (selectedEnemy === "protoss") {
@@ -152,8 +154,10 @@ function selectedEnemy() {
 
 
     } else {
-        console.log("You already picked a Character");
+        $("#reset").show()
+        console.log("You already picked a Fighter");
     }
+
 }
 
 
@@ -163,10 +167,11 @@ function attack() {
 
     $("#characterHealth").text(myCharacterDefense)
     $("#enemyHealth").text(enemyDefense)
+    $("#characterAttackLevel").text(myCharacterAttack)
+    $("#enemyAttackLevel").text(enemyCounter)
     if (myCharacterDefense >= 1) {
         if (enemyDefense >= 1) {
             if (selectedEnemy) {
-                $("#terran-defense").text(terran.defense - enemyAttack)
                 console.log("My Attack:" + myCharacterAttack)
                 console.log("My Defense:" + myCharacterDefense)
 
@@ -183,14 +188,18 @@ function attack() {
                 alert("No Enemy Selected")
             }
 
-            if (myCharacterDefense < 80) {
-                $("#characterHealth").removeClass("good")
-                $("#characterHealth").addClass("bad")
-            }
+            if (selectedCharacter === "protoss") {
+                myCharacterAttack = myCharacterAttack * 2
+                    // $("#characterHealth").removeClass("good")
+                    // $("#characterHealth").addClass("bad")
 
-            myCharacterAttack = myCharacterAttack * 2
+            }
+            $("#reset").show();
+            myCharacterAttack = myCharacterAttack
         } else {
             console.log("ENEMY CHARACTER DEFEATED")
+                // $("#reset").show();
+            selectedEnemyToggle = false;
             enemyReset();
         }
 
@@ -199,6 +208,8 @@ function attack() {
         alert("YOU LOSE!")
         $("#attack").hide();
         $("#reset").show();
+
+
     }
 }
 
@@ -211,40 +222,19 @@ function enemyReset() {
     $("#attack").hide();
     $("#enemy-health-text").hide();
     $("#fighting-section").empty();
-    var stats = ($(this).data("stats"));
-    selectedEnemy = stats[0].name;
-    enemyAttack = stats[0].attack;
-    enemyDefense = stats[0].defense;
-    enemyCounter = stats[0].counter;
+    $("#enemyHealth").empty();
+
+    // var stats = ($(this).data("stats"));
+    // selectedEnemy = stats[0].name;
+    // enemyAttack = stats[0].attack;
+    // enemyDefense = stats[0].defense;
+    // enemyCounter = stats[0].counter;
 }
 
 //////////////////////////////////////////////////////////
 
 function gameReset() {
-    $("#rpgGame").replaceWith(gameClone);
-    $("#attack").hide();
-    $("#reset").hide();
-    $("#attack-info").hide();
-    $("#characterHealth").text(myCharacterDefense);
-    $("#enemyHealth").text(enemyDefense);
-    $("#enemySelected").text("ENEMIES");
-    $("#selected").text("Pick Your Character");
+    location.reload();
 
-    delete window.selectedCharacter;
-    delete window.selectedCharacterToggle;
-    selectedCharacterToggle = false;
-    delete window.selected;
-    selected = false;
-    delete window.selectedEnemy;
-    enemySelected = false;
-    delete window.selectedCharacterAudio;
-    selectedCharacterAudio = false;
-    delete window.myCharacterAttack;
-    delete window.myCharacterDefense;
-    delete window.selectedEnemy;
-    delete window.enemyAttack;
-    delete window.enemyDefense;
-    delete window.enemyCounter;
-    defeated = [];
 
 }

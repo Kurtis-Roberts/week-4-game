@@ -15,6 +15,12 @@ body {
     height: 250px;
 }
 
+p {
+    color: #e0fefb;
+    font-family: fantasy;
+    font-size: 25px;
+}
+
 .img-responsive {
     position: absolute;
 }
@@ -71,4 +77,12 @@ h1 {
 
 .fight-text {
     color: black;
+}
+
+#attack-info {
+    margin-top: 20px;
+}
+
+#attack {
+    margin-right: 65px;
 }
